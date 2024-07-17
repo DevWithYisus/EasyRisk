@@ -1,5 +1,6 @@
 package formularios;
 
+import formularios.RCIN.VentanaRCIN;
 import java.awt.Image;
 import java.awt.Toolkit;
 
@@ -179,7 +180,7 @@ public class VentanaAdquirente extends javax.swing.JFrame {
     }//GEN-LAST:event_opDesglosarGetnetActionPerformed
 
     private void opEmisorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opEmisorActionPerformed
-        VentanaEmisor ventanaEmisor =  new VentanaEmisor();
+        VentanaRCIN ventanaEmisor =  new VentanaRCIN();
         ventanaEmisor.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_opEmisorActionPerformed

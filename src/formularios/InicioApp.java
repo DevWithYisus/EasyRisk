@@ -1,5 +1,6 @@
 package formularios;
 
+import formularios.RCIN.VentanaRCIN;
 import java.awt.Image;
 import java.awt.Toolkit;
 
@@ -35,7 +36,7 @@ public class InicioApp extends javax.swing.JFrame {
         lblTitulo.setText("Easy");
 
         lblTitulo1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        lblTitulo1.setForeground(new java.awt.Color(215, 72, 0));
+        lblTitulo1.setForeground(new java.awt.Color(238, 107, 48));
         lblTitulo1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitulo1.setText("Risk");
 
@@ -66,7 +67,7 @@ public class InicioApp extends javax.swing.JFrame {
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
-        jPanel1.setBackground(new java.awt.Color(255, 102, 51));
+        jPanel1.setBackground(new java.awt.Color(238, 107, 48));
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         btnAdquirente.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -165,7 +166,7 @@ public class InicioApp extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAdquirenteActionPerformed
 
     private void btnEmisorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmisorActionPerformed
-        VentanaEmisor ventanaEmisor = new VentanaEmisor();
+        VentanaRCIN ventanaEmisor = new VentanaRCIN();
         ventanaEmisor.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnEmisorActionPerformed
