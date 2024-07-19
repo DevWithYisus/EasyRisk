@@ -3,8 +3,6 @@ package formularios.RCIN;
 import formularios.DesglosarCpm;
 import formularios.DesglosarSumup;
 import formularios.InicioApp;
-import formularios.InyectarBppr;
-import formularios.InyectarCpm;
 import formularios.VentanaAdquirente;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -150,6 +148,11 @@ public class VentanaRCIN extends javax.swing.JFrame {
         opSears.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         opSears.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/sumup.png"))); // NOI18N
         opSears.setText("Sears");
+        opSears.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opSearsActionPerformed(evt);
+            }
+        });
         menuInyectar.add(opSears);
 
         opPaySmart.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -236,9 +239,9 @@ public class VentanaRCIN extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void opCpmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opCpmActionPerformed
-        InyectarCpm ventanaCpm = new InyectarCpm();
-        escritorio.add(ventanaCpm);
-        ventanaCpm.setVisible(true);
+        InyectarCPMRCIN inyectarCPMRCIN = new InyectarCPMRCIN();
+        escritorio.add(inyectarCPMRCIN);
+        inyectarCPMRCIN.setVisible(true);
     }//GEN-LAST:event_opCpmActionPerformed
 
     private void opDesglosarCpmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opDesglosarCpmActionPerformed
@@ -273,9 +276,9 @@ public class VentanaRCIN extends javax.swing.JFrame {
     }//GEN-LAST:event_opRCAQActionPerformed
 
     private void opBpprActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opBpprActionPerformed
-        InyectarBppr ventanaBppr = new InyectarBppr();
-        escritorio.add(ventanaBppr);
-        ventanaBppr.setVisible(true);
+        InyectarBpprRCIN ventanaBPPR = new InyectarBpprRCIN();
+        escritorio.add(ventanaBPPR);
+        ventanaBPPR.setVisible(true);
     }//GEN-LAST:event_opBpprActionPerformed
 
     private void opISOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opISOActionPerformed
@@ -293,6 +296,12 @@ public class VentanaRCIN extends javax.swing.JFrame {
     private void opBancoopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opBancoopActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_opBancoopActionPerformed
+
+    private void opSearsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opSearsActionPerformed
+        InyectarSearsRCIN inyectarSearsRCIN = new InyectarSearsRCIN();
+        escritorio.add(inyectarSearsRCIN);
+        inyectarSearsRCIN.setVisible(true);
+    }//GEN-LAST:event_opSearsActionPerformed
 
     /**
      * @param args the command line arguments

@@ -11,12 +11,27 @@ import javax.swing.JOptionPane;
 
 public class InyectarCPMRCIN extends javax.swing.JInternalFrame {
 
-    String trama = "01005339417846135717   ;000000000008000;000000000008000;20230425;155526;000000000000000000000100198008653815201200999901           000REG00004        687555537877464Merchant name         Merchant cityCH   1521522000001520041                   000000000000000631200000000000000000000                                                                                                                                                                                                                                                          0000000000001000000310315717   0902953394134  ";
-    String[] desglorar = trama.split(";");
-    String valor = desglorar[1];
-    String valor2 = desglorar[2];
-    String fecha = desglorar[3];
-    String hora = desglorar[4];
+    //sin comentarios
+    String tramaCompraClasica = "01005556072478982145   ;000000000020000;000000000020000;20240712;145837;000000000000000000000100326115601148490100999654     125557000MTF TEST        ABC123TESTMTF19Merchant name         Merchant cityME   4844840100004840013395620103          000000000000007351800000000000000000000                                                                                                                                                                                                                                                          000000000000                   ";
+    String[] desglorarCompraClasica = tramaCompraClasica.split(";");
+    String valorCompraClasica = desglorarCompraClasica[1];
+    String valor2CompraClasica = desglorarCompraClasica[2];
+    String fechaCompraClasica = desglorarCompraClasica[3];
+    String horaCompraClasica = desglorarCompraClasica[4];
+
+    String tramaCompraOro = "01005556070854656609   ;000000000012000;000000000012000;20240717;151646;000000000000000000000100333680601148490100999654     125671000MTF TEST        ABC123TESTMTF19Merchant name         Merchant cityME   4844840100004840013395626503          000000000000007314300000000000000000000                                                                                                                                                                                                                                                          000000000000                   ";
+    String[] desglorarCompraOro = tramaCompraOro.split(";");
+    String valorCompraOro = desglorarCompraOro[1];
+    String valor2CompraOro = desglorarCompraOro[2];
+    String fechaCompraOro = desglorarCompraOro[3];
+    String horaCompraOro = desglorarCompraOro[4];
+
+    String tramaCompraMujer = "01005556071346799625   ;000000000025000;000000000025000;20240717;155853;000000000000000000000100324447601048490200009685     12568600012345678        ID-Code-C000001Merchant name         Merchant cityME   4844840100004840013395626395          000000000000007306800000000000000000000                                                                                                                                                                                                                                                          000000000000                   ";
+    String[] desglorarCompraMujer = tramaCompraMujer.split(";");
+    String valorCompraMujer = desglorarCompraMujer[1];
+    String valor2CompraMujer = desglorarCompraMujer[2];
+    String fechaCompraMujer = desglorarCompraMujer[3];
+    String horaCompraMujer = desglorarCompraMujer[4];
 
     public InyectarCPMRCIN() {
         initComponents();
@@ -142,7 +157,7 @@ public class InyectarCPMRCIN extends javax.swing.JInternalFrame {
         lblTipoTrx.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblTipoTrx.setText("Tipo De Transacción:");
 
-        comboTipoTrx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione una opción", "Compra - Tarjeta Oro", "Compra - Tarjeta Clasica", "Compra - Tarjeta Mujer Coop", "Reverso - Tarjeta Oro", "Reverso - Tarjeta Clasica", "Reverso - Tarjeta Mujer Coop" }));
+        comboTipoTrx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione una opción", "Compra - Tarjeta Clasica", "Compra - Tarjeta Oro", "Compra - Tarjeta Mujer Coop" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -267,7 +282,7 @@ public class InyectarCPMRCIN extends javax.swing.JInternalFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(76, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(lblPuerto1)
@@ -281,12 +296,12 @@ public class InyectarCPMRCIN extends javax.swing.JInternalFrame {
                         .addComponent(lblHexa)
                         .addGap(18, 18, 18)
                         .addComponent(cajaHexa, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 795, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addComponent(btnCopiarHercules, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(320, 320, 320)
-                            .addComponent(lblHercules))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(btnCopiarHercules, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(320, 320, 320)
+                        .addComponent(lblHercules)
+                        .addGap(340, 340, 340))
+                    .addComponent(jScrollPane1))
                 .addGap(67, 67, 67))
         );
         jPanel2Layout.setVerticalGroup(
@@ -306,7 +321,7 @@ public class InyectarCPMRCIN extends javax.swing.JInternalFrame {
                     .addComponent(btnCopiarHercules, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -314,7 +329,7 @@ public class InyectarCPMRCIN extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -338,7 +353,9 @@ public class InyectarCPMRCIN extends javax.swing.JInternalFrame {
             int año = calendario.get(Calendar.YEAR);
             String mesCompleto = String.valueOf(obj.format("%02d", mes));
             String diaCompleto = String.valueOf(obj.format("%02d", dia));
-            fecha = año + "" + diaCompleto;
+            fechaCompraClasica = año + "" + diaCompleto;
+            fechaCompraOro = año + "" + diaCompleto;
+            fechaCompraMujer = año + "" + diaCompleto;
 
             obj = new Formatter();
             int horas = cajaHora.getValue();
@@ -347,7 +364,9 @@ public class InyectarCPMRCIN extends javax.swing.JInternalFrame {
             String minCompleto = String.valueOf(obj.format("%02d", min));
             int seg = cajaSegundo.getValue();
             String segCompleto = String.valueOf(obj.format("%02d", seg));
-            hora = segCompleto + "";
+            horaCompraClasica = segCompleto + "";
+            horaCompraOro = segCompleto + "";
+            horaCompraMujer = segCompleto + "";
             //areaTrama.setText(dataHora);
 
             // dejar el valor sin la coma
@@ -363,31 +382,53 @@ public class InyectarCPMRCIN extends javax.swing.JInternalFrame {
             // dejar la longitud exacta para la trama
             obj = new Formatter();
             String montoTotal = String.valueOf(obj.format("%015d", numero));
-            valor = montoTotal;
-            valor2 = montoTotal;
+            valorCompraClasica = montoTotal;
+            valor2CompraClasica = montoTotal;
+            valorCompraOro = montoTotal;
+            valor2CompraOro = montoTotal;
+            valorCompraMujer = montoTotal;
+            valor2CompraMujer = montoTotal;
 
             switch (comboPuerto.getSelectedIndex()) {
                 case 0:
                     cajaIp.setText("10.195.16.7");
-                    cajaPuerto.setText("6080");
+                    cajaPuerto.setText("6100");
                     break;
                 case 1:
                     cajaIp.setText("10.195.16.22");
-                    cajaPuerto.setText("6080");
+                    cajaPuerto.setText("6100");
                     break;
             }
 
-            int decimales = 573;
-            String hexadecimal = Integer.toHexString(decimales);
-            cajaHexa.setText("0" + hexadecimal);
-            String[] nuevoHexa = hexadecimal.split("");
-            String hexa1 = "0" + nuevoHexa[0];
-            String hexa2 = nuevoHexa[1] + nuevoHexa[2];
+            switch (comboTipoTrx.getSelectedIndex()) {
+                case 0:
+                    JOptionPane.showMessageDialog(null, "Seleccione un tipo de transacción");
+                    break;
+                case 1:
+                    int decimalesClasica = 558;
+                    String hexadecimalClasica = Integer.toHexString(decimalesClasica);
+                    cajaHexa.setText("0" + hexadecimalClasica);
 
-            areaHercules.setText(desglorar[0] + valor + valor2 + fecha + hora + desglorar[5]);
+                    areaHercules.setText(desglorarCompraClasica[0] + valorCompraClasica + valor2CompraClasica + fechaCompraClasica + horaCompraClasica + desglorarCompraClasica[5]);
+                    break;
+                case 2:
+                    int decimalesOro = 558;
+                    String hexadecimalOro = Integer.toHexString(decimalesOro);
+                    cajaHexa.setText("0" + hexadecimalOro);
+
+                    areaHercules.setText(desglorarCompraOro[0] + valorCompraOro + valor2CompraOro + fechaCompraOro + horaCompraOro + desglorarCompraOro[5]);
+                    break;
+                case 3:
+                    int decimalesMujer = 558;
+                    String hexadecimalMujer = Integer.toHexString(decimalesMujer);
+                    cajaHexa.setText("0" + hexadecimalMujer);
+
+                    areaHercules.setText(desglorarCompraMujer[0] + valorCompraMujer + valor2CompraMujer + fechaCompraMujer + horaCompraMujer + desglorarCompraMujer[5]);
+                    break;
+            }
 
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Debe completar Fecha, Hora y Monto de la transacción",
+            JOptionPane.showMessageDialog(null, "Debe completar Fecha, Hora, Tipo y Monto de la transacción",
                     "ADVERTENCIA", JOptionPane.WARNING_MESSAGE);
         }
 
@@ -427,7 +468,7 @@ public class InyectarCPMRCIN extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_cajaValorActionPerformed
 
     private void cajaValorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajaValorKeyTyped
-        
+
     }//GEN-LAST:event_cajaValorKeyTyped
 
     private void cajaValorKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajaValorKeyReleased
@@ -443,8 +484,8 @@ public class InyectarCPMRCIN extends javax.swing.JInternalFrame {
         }else{
             cajaValor.setText("0");
         }
-        */
-        
+         */
+
     }//GEN-LAST:event_cajaValorKeyReleased
 
 

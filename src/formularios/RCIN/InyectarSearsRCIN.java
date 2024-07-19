@@ -12,13 +12,19 @@ import javax.swing.JOptionPane;
 public class InyectarSearsRCIN extends javax.swing.JInternalFrame {
 
     //sin comentarios
-   
-    String trama = "01005339417846135717   ;000000000008000;000000000008000;20230425;155526;000000000000000000000100198008653815201200999901           000REG00004        687555537877464Merchant name         Merchant cityCH   1521522000001520041                   000000000000000631200000000000000000000                                                                                                                                                                                                                                                          0000000000001000000310315717   0902953394134  ";
-    String[] desglorar = trama.split(";");
-    String valor = desglorar[1];
-    String valor2 = desglorar[2];
-    String fecha = desglorar[3];
-    String hora = desglorar[4];
+    String tramaCompraVirtual = "01004731250012303572   ;000000000020000;000000000355674;20240716;213040;000000000000000000001778206307599984001200405104     125660000TERMID01        CARD ACCEPTOR  ACQUIRER NAME         CITY NAME    US   8404840000004840022224446616          000000000000001086500000000000000000000                                                                                                                                                                                                                                                          000000000000                   ";
+    String[] desglorarCompraVirtual = tramaCompraVirtual.split(";");
+    String valorCompraVirtual = desglorarCompraVirtual[1];
+    String valor2CompraVirtual = desglorarCompraVirtual[2];
+    String fechaCompraVirtual = desglorarCompraVirtual[3];
+    String horaCompraVirtual = desglorarCompraVirtual[4];
+
+    String tramaCompraFisica = "01004731250054989525   ;000000000020000;000000000025000;20240716;145454;000000000000000000000100205105599984001200405104     125594000TERMID01        CARD ACCEPTOR  ACQUIRER NAME         CITY NAME    US   8404840000004840022224446616          000000000000001081000000000000000000000                                                                                                                                                                                                                                                          000000000000                   ";
+    String[] desglorarCompraFisica = tramaCompraFisica.split(";");
+    String valorCompraFisica = desglorarCompraFisica[1];
+    String valor2CompraFisica = desglorarCompraFisica[2];
+    String fechaCompraFisica = desglorarCompraFisica[3];
+    String horaCompraFisica = desglorarCompraFisica[4];
 
     public InyectarSearsRCIN() {
         initComponents();
@@ -144,7 +150,7 @@ public class InyectarSearsRCIN extends javax.swing.JInternalFrame {
         lblTipoTrx.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblTipoTrx.setText("Tipo De Transacción:");
 
-        comboTipoTrx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione una opción", "Compra - Tarjeta Virtual", "Compra - Tarjeta Fisica", "Reverso - Tarjeta Virtual", "Reverso - Tarjeta Fisica" }));
+        comboTipoTrx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione una opción", "Compra - Tarjeta Virtual", "Compra - Tarjeta Fisica" }));
         comboTipoTrx.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboTipoTrxActionPerformed(evt);
@@ -345,7 +351,8 @@ public class InyectarSearsRCIN extends javax.swing.JInternalFrame {
             int año = calendario.get(Calendar.YEAR);
             String mesCompleto = String.valueOf(obj.format("%02d", mes));
             String diaCompleto = String.valueOf(obj.format("%02d", dia));
-            fecha = año + "" + diaCompleto;
+            fechaCompraVirtual = año + "" + diaCompleto;
+            fechaCompraFisica = año + "" + diaCompleto;
 
             obj = new Formatter();
             int horas = cajaHora.getValue();
@@ -354,7 +361,8 @@ public class InyectarSearsRCIN extends javax.swing.JInternalFrame {
             String minCompleto = String.valueOf(obj.format("%02d", min));
             int seg = cajaSegundo.getValue();
             String segCompleto = String.valueOf(obj.format("%02d", seg));
-            hora = segCompleto + "";
+            horaCompraVirtual = segCompleto + "";
+            horaCompraFisica = segCompleto + "";
             //areaTrama.setText(dataHora);
 
             // dejar el valor sin la coma
@@ -370,28 +378,41 @@ public class InyectarSearsRCIN extends javax.swing.JInternalFrame {
             // dejar la longitud exacta para la trama
             obj = new Formatter();
             String montoTotal = String.valueOf(obj.format("%015d", numero));
-            valor = montoTotal;
-            valor2 = montoTotal;
+            valorCompraVirtual = montoTotal;
+            valor2CompraVirtual = montoTotal;
+            valorCompraFisica = montoTotal;
+            valor2CompraFisica = montoTotal;
 
             switch (comboPuerto.getSelectedIndex()) {
                 case 0:
                     cajaIp.setText("10.195.16.7");
-                    cajaPuerto.setText("6080");
+                    cajaPuerto.setText("6100");
                     break;
                 case 1:
                     cajaIp.setText("10.195.16.22");
-                    cajaPuerto.setText("6080");
+                    cajaPuerto.setText("6100");
                     break;
             }
 
-            int decimales = 573;
-            String hexadecimal = Integer.toHexString(decimales);
-            cajaHexa.setText("0" + hexadecimal);
-            String[] nuevoHexa = hexadecimal.split("");
-            String hexa1 = "0" + nuevoHexa[0];
-            String hexa2 = nuevoHexa[1] + nuevoHexa[2];
+            switch (comboTipoTrx.getSelectedIndex()) {
+                case 0:
+                    JOptionPane.showMessageDialog(null, "Seleccione un tipo de transacción");
+                    break;
+                case 1:
+                    int decimalesVirtual = 558;
+                    String hexadecimalVirtual = Integer.toHexString(decimalesVirtual);
+                    cajaHexa.setText("0" + hexadecimalVirtual);
 
-            areaHercules.setText(desglorar[0] + valor + valor2 + fecha + hora + desglorar[5]);
+                    areaHercules.setText(desglorarCompraVirtual[0] + valorCompraVirtual + valor2CompraVirtual + fechaCompraVirtual + horaCompraVirtual + desglorarCompraVirtual[5]);
+                    break;
+                case 2:
+                    int decimalesFisica = 558;
+                    String hexadecimalFisica = Integer.toHexString(decimalesFisica);
+                    cajaHexa.setText("0" + hexadecimalFisica);
+
+                    areaHercules.setText(desglorarCompraFisica[0] + valorCompraFisica + valor2CompraFisica + fechaCompraFisica + horaCompraFisica + desglorarCompraFisica[5]);
+                    break;
+            }
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Debe completar Fecha, Hora y Monto de la transacción",
@@ -434,7 +455,7 @@ public class InyectarSearsRCIN extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_cajaValorActionPerformed
 
     private void cajaValorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajaValorKeyTyped
-        
+
     }//GEN-LAST:event_cajaValorKeyTyped
 
     private void cajaValorKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajaValorKeyReleased
@@ -450,8 +471,8 @@ public class InyectarSearsRCIN extends javax.swing.JInternalFrame {
         }else{
             cajaValor.setText("0");
         }
-        */
-        
+         */
+
     }//GEN-LAST:event_cajaValorKeyReleased
 
     private void comboTipoTrxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboTipoTrxActionPerformed
