@@ -158,6 +158,11 @@ public class VentanaRCIN extends javax.swing.JFrame {
         opPaySmart.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         opPaySmart.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/paysmart.png"))); // NOI18N
         opPaySmart.setText("PaySmart");
+        opPaySmart.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opPaySmartActionPerformed(evt);
+            }
+        });
         menuInyectar.add(opPaySmart);
 
         menuCompleto.add(menuInyectar);
@@ -282,7 +287,9 @@ public class VentanaRCIN extends javax.swing.JFrame {
     }//GEN-LAST:event_opBpprActionPerformed
 
     private void opISOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opISOActionPerformed
-        // TODO add your handling code here:
+        ConvertirISORCIN convertirISORCIN = new ConvertirISORCIN();
+        escritorio.add(convertirISORCIN);
+        convertirISORCIN.setVisible(true);
     }//GEN-LAST:event_opISOActionPerformed
 
     private void opASCIIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opASCIIActionPerformed
@@ -294,7 +301,9 @@ public class VentanaRCIN extends javax.swing.JFrame {
     }//GEN-LAST:event_opRCISActionPerformed
 
     private void opBancoopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opBancoopActionPerformed
-        // TODO add your handling code here:
+        InyectarBancoopRCIN inyectarBancoopRCIN = new InyectarBancoopRCIN();
+        escritorio.add(inyectarBancoopRCIN);
+        inyectarBancoopRCIN.setVisible(true);
     }//GEN-LAST:event_opBancoopActionPerformed
 
     private void opSearsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opSearsActionPerformed
@@ -302,6 +311,12 @@ public class VentanaRCIN extends javax.swing.JFrame {
         escritorio.add(inyectarSearsRCIN);
         inyectarSearsRCIN.setVisible(true);
     }//GEN-LAST:event_opSearsActionPerformed
+
+    private void opPaySmartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opPaySmartActionPerformed
+        InyectarPaysmartRCIN inyectarPaysmartRCIN = new InyectarPaysmartRCIN();
+        escritorio.add(inyectarPaysmartRCIN);
+        inyectarPaysmartRCIN.setVisible(true);
+    }//GEN-LAST:event_opPaySmartActionPerformed
 
     /**
      * @param args the command line arguments
