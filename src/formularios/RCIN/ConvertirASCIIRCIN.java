@@ -8,9 +8,9 @@ import java.util.Calendar;
 import java.util.Formatter;
 import javax.swing.JOptionPane;
 
-public class ConvertirISORCIN extends javax.swing.JInternalFrame {
+public class ConvertirASCIIRCIN extends javax.swing.JInternalFrame {
 
-    public ConvertirISORCIN() {
+    public ConvertirASCIIRCIN() {
         initComponents();
     }
 
@@ -50,7 +50,7 @@ public class ConvertirISORCIN extends javax.swing.JInternalFrame {
         btnCopiarHercules1 = new javax.swing.JButton();
 
         setClosable(true);
-        setTitle("Convertir Tramas ISO");
+        setTitle("Convertir Tramas ASCII");
         setMaximumSize(new java.awt.Dimension(950, 600));
         setMinimumSize(new java.awt.Dimension(950, 600));
         setName(""); // NOI18N
@@ -322,15 +322,10 @@ public class ConvertirISORCIN extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(null, "Ingrese una trama para convertir");
             }
 
-            String bin = tramaCompleta.substring(0, 8);
-            String tramaDesdeISO = tramaCompleta.substring(31, tramaCompleta.length());
-            String primeraParte = tramaDesdeISO.substring(0, 50);
-            String parteTarjetaFinal = tramaDesdeISO.substring(58, 69);
-            String partefinal = tramaCompleta.substring(125, tramaCompleta.length());
-
-            System.out.println(bin);
-            System.out.println(primeraParte);
-            System.out.println(parteTarjetaFinal);
+            String mti = tramaCompleta.substring(0, 4);
+            String bin = tramaCompleta.substring(28, 40);
+            String tarjeta = tramaCompleta.substring(48, 55);
+            String parteFinal = tramaCompleta.substring(99, tramaCompleta.length());
 
             Formatter obj = new Formatter();
             Calendar calendario = cajaFecha.getCalendar();
@@ -339,7 +334,7 @@ public class ConvertirISORCIN extends javax.swing.JInternalFrame {
             int año = calendario.get(Calendar.YEAR);
             String mesCompleto = String.valueOf(obj.format("%02d", mes));
             String diaCompleto = String.valueOf(obj.format("%02d", dia));
-            String fecha = diaCompleto;
+            String fecha = año + "" + diaCompleto;
 
             obj = new Formatter();
             int horas = cajaHora.getValue();
@@ -350,12 +345,8 @@ public class ConvertirISORCIN extends javax.swing.JInternalFrame {
             String segCompleto = String.valueOf(obj.format("%02d", seg));
             String hora = segCompleto + "";
 
-            //areaTrama.setText(dataHora);
-            // dejar el valor sin la coma
             String dataValor = cajaValor.getText().trim();
             String[] valores = dataValor.split(",");
-            String monto = valores[0];
-            String decimal = valores[1];
 
             dataValor = valores[0] + valores[1];
 
@@ -364,32 +355,35 @@ public class ConvertirISORCIN extends javax.swing.JInternalFrame {
             // dejar la longitud exacta para la trama
             obj = new Formatter();
             String montoTotal = String.valueOf(obj.format("%015d", numero));
-            String parteValor = montoTotal;
+            String valor = montoTotal;
+            String valor2 = montoTotal;
 
-            
-
-            areaHercules.setText(primeraParte + bin + parteTarjetaFinal + parteValor + fecha + hora + partefinal);
-            
-            int decimalesP2P = areaHercules.getText().length();
-            String hexadecimalP2P = Integer.toHexString(decimalesP2P);
-            cajaHexa.setText("0" + hexadecimalP2P + "0000");
-            
             switch (comboPuerto.getSelectedIndex()) {
                 case 0:
                     cajaIp.setText("10.195.16.7");
-                    cajaPuerto.setText("6110");
+                    cajaPuerto.setText("6100");
                     break;
                 case 1:
                     cajaIp.setText("10.195.16.22");
-                    cajaPuerto.setText("6110");
+                    cajaPuerto.setText("6080");
                     break;
             }
 
+            areaHercules.setText(mti + bin + tarjeta + valor + valor2 + fecha + hora + parteFinal);
+
+            String longitud = areaHercules.getText();
+            System.out.println(longitud.length());
+            int decimales = longitud.length();
+            String hexadecimal = Integer.toHexString(decimales);
+            cajaHexa.setText("0" + hexadecimal);
+            String[] nuevoHexa = hexadecimal.split("");
+            String hexa1 = "0" + nuevoHexa[0];
+            String hexa2 = nuevoHexa[1] + nuevoHexa[2];
+
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e /*"Debe completar Fecha, Hora y Monto de la transacción"*/,
+            JOptionPane.showMessageDialog(null, "Debe completar todos los datos",
                     "ADVERTENCIA", JOptionPane.WARNING_MESSAGE);
         }
-
     }//GEN-LAST:event_btnConvertirActionPerformed
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed

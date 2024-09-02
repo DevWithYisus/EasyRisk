@@ -158,6 +158,7 @@ public class VentanaRCIN extends javax.swing.JFrame {
         opPaySmart.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         opPaySmart.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/paysmart.png"))); // NOI18N
         opPaySmart.setText("PaySmart");
+        opPaySmart.setEnabled(false);
         opPaySmart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 opPaySmartActionPerformed(evt);
@@ -293,7 +294,9 @@ public class VentanaRCIN extends javax.swing.JFrame {
     }//GEN-LAST:event_opISOActionPerformed
 
     private void opASCIIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opASCIIActionPerformed
-        // TODO add your handling code here:
+        ConvertirASCIIRCIN convertirASCIIRCIN = new ConvertirASCIIRCIN();
+        escritorio.add(convertirASCIIRCIN);
+        convertirASCIIRCIN.setVisible(true);
     }//GEN-LAST:event_opASCIIActionPerformed
 
     private void opRCISActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opRCISActionPerformed
