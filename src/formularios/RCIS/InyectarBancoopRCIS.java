@@ -1,5 +1,6 @@
-package formularios.RCIN;
+package formularios.RCIS;
 
+import formularios.RCIN.*;
 import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
@@ -8,7 +9,7 @@ import java.util.Calendar;
 import java.util.Formatter;
 import javax.swing.JOptionPane;
 
-public class InyectarBancoopRCIN extends javax.swing.JInternalFrame {
+public class InyectarBancoopRCIS extends javax.swing.JInternalFrame {
 
     //ATHM P2P
     String tramaCompra = "ISO0260000530220F238C4C10EE180160000000006000008165045381006847762002;000000000000400;0627;185600;0003101455590627062859120110002082150201100000004553311827200HATHPBLOS07     4549105002456  TEST BPPR OSVALDO     SAN JUAN     PR PR0274549105002456       0000000840016BPPRCER3+000000001000936     644& 0000600644! RE00008 00000   ! SM00516 05120000000000                                                                                                                                                                                                                                                          10000000000100001                                                                                                                                                                                                                                           ! 0400020  84000000997        ! C400012 000000000020! C000026         00936             0921710237400012P HOSTB24 10";
@@ -24,7 +25,7 @@ public class InyectarBancoopRCIN extends javax.swing.JInternalFrame {
     String fechaRetiro = desglorarRetiro[2];
     String horaRetiro = desglorarRetiro[3];
 
-    public InyectarBancoopRCIN() {
+    public InyectarBancoopRCIS() {
         initComponents();
     }
 
@@ -63,7 +64,7 @@ public class InyectarBancoopRCIN extends javax.swing.JInternalFrame {
         btnCopiarHercules1 = new javax.swing.JButton();
 
         setClosable(true);
-        setTitle("Generar Tramas Bancoop - RCIN");
+        setTitle("Generar Tramas Bancoop - RCIS");
         setMaximumSize(new java.awt.Dimension(950, 475));
         setMinimumSize(new java.awt.Dimension(950, 475));
         setName(""); // NOI18N
@@ -120,7 +121,7 @@ public class InyectarBancoopRCIN extends javax.swing.JInternalFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setText("Segundos");
 
-        comboPuerto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "RCIN - CERT01", "RCIN - CERT02" }));
+        comboPuerto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "RCIS - CERT01", "RCIS - CERT02" }));
 
         lblValor2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblValor2.setText("Instancia/Ambiente:");
@@ -199,7 +200,7 @@ public class InyectarBancoopRCIN extends javax.swing.JInternalFrame {
                                 .addComponent(comboPuerto, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(29, 29, 29))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
+                        .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -371,11 +372,11 @@ public class InyectarBancoopRCIN extends javax.swing.JInternalFrame {
             switch (comboPuerto.getSelectedIndex()) {
                 case 0:
                     cajaIp.setText("10.195.16.7");
-                    cajaPuerto.setText("Pendiente");
+                    cajaPuerto.setText("6050");
                     break;
                 case 1:
                     cajaIp.setText("10.195.16.22");
-                    cajaPuerto.setText("Pendiente");
+                    cajaPuerto.setText("6050");
                     break;
             }
 

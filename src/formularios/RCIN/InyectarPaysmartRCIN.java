@@ -79,7 +79,7 @@ public class InyectarPaysmartRCIN extends javax.swing.JInternalFrame {
         btnCopiarHercules1 = new javax.swing.JButton();
 
         setClosable(true);
-        setTitle("Generar Tramas PaySmart");
+        setTitle("Generar Tramas PaySmart - RCIN");
         setToolTipText("");
         setMaximumSize(new java.awt.Dimension(950, 475));
         setMinimumSize(new java.awt.Dimension(950, 475));

@@ -1,5 +1,6 @@
-package formularios.RCIN;
+package formularios.RCIS;
 
+import formularios.RCIN.*;
 import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
@@ -9,23 +10,24 @@ import java.util.Calendar;
 import java.util.Formatter;
 import javax.swing.JOptionPane;
 
-public class InyectarSumupRCIN extends javax.swing.JInternalFrame {
+public class InyectarSearsRCIS extends javax.swing.JInternalFrame {
 
-    String tramaCompraVirtual = "01005339413422337966   ;000000000008000;000000000008000;20240715;154431;000000000000000000000000475032601184005100123456     12558800098765432        123456789000000Merchant name         Merchant cityUS   8401520100001520041                   000000000000001569300000000000000000000                                                                                                                                                                                                                                                          000000000000                   ";
+    //sin comentarios
+    String tramaCompraVirtual = "01004731250012303572   ;000000000020000;000000000355674;20240716;213040;000000000000000000001778206307599984001200405104     125660000TERMID01        CARD ACCEPTOR  ACQUIRER NAME         CITY NAME    US   8404840000004840022224446616          000000000000001086500000000000000000000                                                                                                                                                                                                                                                          000000000000                   ";
     String[] desglorarCompraVirtual = tramaCompraVirtual.split(";");
     String valorCompraVirtual = desglorarCompraVirtual[1];
     String valor2CompraVirtual = desglorarCompraVirtual[2];
     String fechaCompraVirtual = desglorarCompraVirtual[3];
     String horaCompraVirtual = desglorarCompraVirtual[4];
 
-    String tramaCompraFisica = "01005339413265470709   ;000000000005000;000000002868800;20240715;153740;000000000000000000000000472044478403281200009685     12558200012345678        111111111111111Merchant name         Merchant cityAR   0321520000001520041                   000000000000001572300000000000000000000                                                                                                                                                                                                                                                          000000000000                   ";
+    String tramaCompraFisica = "01004731250054989525   ;000000000020000;000000000025000;20240716;145454;000000000000000000000100205105599984001200405104     125594000TERMID01        CARD ACCEPTOR  ACQUIRER NAME         CITY NAME    US   8404840000004840022224446616          000000000000001081000000000000000000000                                                                                                                                                                                                                                                          000000000000                   ";
     String[] desglorarCompraFisica = tramaCompraFisica.split(";");
     String valorCompraFisica = desglorarCompraFisica[1];
     String valor2CompraFisica = desglorarCompraFisica[2];
     String fechaCompraFisica = desglorarCompraFisica[3];
     String horaCompraFisica = desglorarCompraFisica[4];
 
-    public InyectarSumupRCIN() {
+    public InyectarSearsRCIS() {
         initComponents();
 
     }
@@ -66,7 +68,7 @@ public class InyectarSumupRCIN extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setResizable(true);
-        setTitle("Generar Tramas Sumup - RCIN");
+        setTitle("Generar Tramas Sears  - RCIS");
         setMaximumSize(new java.awt.Dimension(950, 475));
         setMinimumSize(new java.awt.Dimension(950, 475));
         setPreferredSize(new java.awt.Dimension(950, 475));
@@ -136,7 +138,7 @@ public class InyectarSumupRCIN extends javax.swing.JInternalFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setText("Segundos");
 
-        comboPuerto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "RCIN - CERT01", "RCIN - CERT02" }));
+        comboPuerto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "RCIS - CERT01", "RCIS - CERT02" }));
         comboPuerto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboPuertoActionPerformed(evt);
@@ -150,6 +152,11 @@ public class InyectarSumupRCIN extends javax.swing.JInternalFrame {
         lblTipoTrx.setText("Tipo De Transacción:");
 
         comboTipoTrx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione una opción", "Compra - Tarjeta Virtual", "Compra - Tarjeta Fisica" }));
+        comboTipoTrx.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboTipoTrxActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -380,11 +387,11 @@ public class InyectarSumupRCIN extends javax.swing.JInternalFrame {
             switch (comboPuerto.getSelectedIndex()) {
                 case 0:
                     cajaIp.setText("10.195.16.7");
-                    cajaPuerto.setText("6100");
+                    cajaPuerto.setText("6080");
                     break;
                 case 1:
                     cajaIp.setText("10.195.16.22");
-                    cajaPuerto.setText("6100");
+                    cajaPuerto.setText("6080");
                     break;
             }
 
@@ -409,7 +416,7 @@ public class InyectarSumupRCIN extends javax.swing.JInternalFrame {
             }
 
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Debe completar Fecha, Hora, Tipo y Monto de la transacción",
+            JOptionPane.showMessageDialog(null, "Debe completar Fecha, Hora y Monto de la transacción",
                     "ADVERTENCIA", JOptionPane.WARNING_MESSAGE);
         }
 
@@ -468,6 +475,10 @@ public class InyectarSumupRCIN extends javax.swing.JInternalFrame {
          */
 
     }//GEN-LAST:event_cajaValorKeyReleased
+
+    private void comboTipoTrxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboTipoTrxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboTipoTrxActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

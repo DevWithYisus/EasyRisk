@@ -1,5 +1,6 @@
-package formularios.RCIN;
+package formularios.RCIS;
 
+import formularios.RCIN.*;
 import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
@@ -8,23 +9,39 @@ import java.util.Calendar;
 import java.util.Formatter;
 import javax.swing.JOptionPane;
 
-public class InyectarBancoopRCIN extends javax.swing.JInternalFrame {
+public class InyectarPaysmartRCIS extends javax.swing.JInternalFrame {
 
-    //ATHM P2P
-    String tramaCompra = "ISO0260000530220F238C4C10EE180160000000006000008165045381006847762002;000000000000400;0627;185600;0003101455590627062859120110002082150201100000004553311827200HATHPBLOS07     4549105002456  TEST BPPR OSVALDO     SAN JUAN     PR PR0274549105002456       0000000840016BPPRCER3+000000001000936     644& 0000600644! RE00008 00000   ! SM00516 05120000000000                                                                                                                                                                                                                                                          10000000000100001                                                                                                                                                                                                                                           ! 0400020  84000000997        ! C400012 000000000020! C000026         00936             0921710237400012P HOSTB24 10";
-    String[] desglorarCompra = tramaCompra.split(";");
-    String valorCompra = desglorarCompra[1];
-    String fechaCompra = desglorarCompra[2];
-    String horaCompra = desglorarCompra[3];
+    //ATHM compra issuerPos
+    String tramaCompraIssuer = "ISO1111111110110763820010EE0A000166500480044953154003000000000200;000000000200000;0717;193838;1738381638380717076040025616910232023429312000000000020172289020001605270002ELO                    BARUERI       076986986";
+    String[] desglorarCompraIssuer = tramaCompraIssuer.split(";");
+    String valorCompraIssuer = desglorarCompraIssuer[1];
+    String fechaCompraIssuer = desglorarCompraIssuer[2];
+    String horaCompraIssuer = desglorarCompraIssuer[3];
 
-    //ATHM P2B
-    String tramaRetiro = "ISO0160000530220F23CE40006E080000000004000004008165045381007077713012;000000000001000;0711;204507;010237164507071112010711601163090135862400HATHPBLOS07     HATHPBLOS07    KMART 7752      YAUCOSAN JUAN     PR    840                                          043001018212587490707323575002003OAA003004    001                                                                                                                                                                                                       ";
-    String[] desglorarRetiro = tramaRetiro.split(";");
-    String valorRetiro = desglorarRetiro[1];
-    String fechaRetiro = desglorarRetiro[2];
-    String horaRetiro = desglorarRetiro[3];
+    /*
+    //ATHM Retiro IssuerPos
+    String tramaRetiroIssuer = "";
+    String[] desglorarRetiroIssuer = tramaRetiroIssuer.split(";");
+    String valorRetiroIssuer = desglorarRetiroIssuer[1];
+    String fechaRetiroIssuer = desglorarRetiroIssuer[2];
+    String horaRetiroIssuer = desglorarRetiroIssuer[3];
+    
+    //ATHM Compra glorIssuer
+    String tramaCompraGlori = "";
+    String[] desglorarCompraGlori = tramaCompraGlori.split(";");
+    String valorCompraGlori = desglorarCompraGlori[1];
+    String fechaCompraGlori = desglorarCompraGlori[2];
+    String horaCompraGlori = desglorarCompraGlori[3];
 
-    public InyectarBancoopRCIN() {
+    //ATHM Retiro GlorIssuer
+    String tramaRetiroGlori = "";
+    String[] desglorarRetiroGlori = tramaRetiroGlori.split(";");
+    String valorRetiroGlori = desglorarRetiroGlori[1];
+    String fechaRetiroGlori = desglorarRetiroGlori[2];
+    String horaRetiroGlori = desglorarRetiroGlori[3];
+
+     */
+    public InyectarPaysmartRCIS() {
         initComponents();
     }
 
@@ -63,7 +80,8 @@ public class InyectarBancoopRCIN extends javax.swing.JInternalFrame {
         btnCopiarHercules1 = new javax.swing.JButton();
 
         setClosable(true);
-        setTitle("Generar Tramas Bancoop - RCIN");
+        setTitle("Generar Tramas PaySmart - RCIS");
+        setToolTipText("");
         setMaximumSize(new java.awt.Dimension(950, 475));
         setMinimumSize(new java.awt.Dimension(950, 475));
         setName(""); // NOI18N
@@ -120,7 +138,7 @@ public class InyectarBancoopRCIN extends javax.swing.JInternalFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setText("Segundos");
 
-        comboPuerto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "RCIN - CERT01", "RCIN - CERT02" }));
+        comboPuerto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "RCIS - CERT01", "RCIS - CERT02" }));
 
         lblValor2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblValor2.setText("Instancia/Ambiente:");
@@ -128,7 +146,7 @@ public class InyectarBancoopRCIN extends javax.swing.JInternalFrame {
         lblTipoTrx.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblTipoTrx.setText("Tipo De Transacción:");
 
-        comboTipoTrx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione una opción", "Compra", "Retiro ATM" }));
+        comboTipoTrx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione una opción", "Compra - IssuerPos", "Retiro - IssuerPos", "Compra - GlorIssuer", "Retiro - GlorIssuer" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -199,7 +217,7 @@ public class InyectarBancoopRCIN extends javax.swing.JInternalFrame {
                                 .addComponent(comboPuerto, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(29, 29, 29))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
+                        .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -336,8 +354,10 @@ public class InyectarBancoopRCIN extends javax.swing.JInternalFrame {
             int año = calendario.get(Calendar.YEAR);
             String mesCompleto = String.valueOf(obj.format("%02d", mes));
             String diaCompleto = String.valueOf(obj.format("%02d", dia));
-            fechaCompra = diaCompleto;
-            fechaRetiro = diaCompleto;
+            fechaCompraIssuer = diaCompleto;
+            //fechaRetiroIssuer  = diaCompleto;
+            //fechaCompraGlori = diaCompleto;
+            //fechaRetiroGlori  = diaCompleto;
 
             obj = new Formatter();
             int horas = cajaHora.getValue();
@@ -346,11 +366,12 @@ public class InyectarBancoopRCIN extends javax.swing.JInternalFrame {
             String minCompleto = String.valueOf(obj.format("%02d", min));
             int seg = cajaSegundo.getValue();
             String segCompleto = String.valueOf(obj.format("%02d", seg));
-            horaCompra = segCompleto + "";
-            horaRetiro = segCompleto + "";
+            horaCompraIssuer = segCompleto + "";
+            //horaRetiroIssuer = segCompleto + "";
+            //horaCompraGlori = segCompleto + "";
+            //horaRetiroGlori = segCompleto + "";
 
             //areaTrama.setText(dataHora);
-
             // dejar el valor sin la coma
             String dataValor = cajaValor.getText().trim();
             String[] valores = dataValor.split(",");
@@ -364,9 +385,10 @@ public class InyectarBancoopRCIN extends javax.swing.JInternalFrame {
             // dejar la longitud exacta para la trama
             obj = new Formatter();
             String montoTotal = String.valueOf(obj.format("%015d", numero));
-            valorCompra = montoTotal;
-            valorRetiro = montoTotal;
-
+            valorCompraIssuer = montoTotal;
+            //valorRetiroIssuer = montoTotal;
+            //valorCompraGlori = montoTotal;
+            //valorRetiroGlori = montoTotal;
 
             switch (comboPuerto.getSelectedIndex()) {
                 case 0:
@@ -385,21 +407,48 @@ public class InyectarBancoopRCIN extends javax.swing.JInternalFrame {
                     break;
                 case 1:
 
-                    int decimalesCompra = 967;
-                    String hexadecimalCompra = Integer.toHexString(decimalesCompra);
-                    cajaHexa.setText("0" + hexadecimalCompra + "0000");
+                    int decimalesCompraIssuer = 212;
+                    String hexadecimalCompraIssuer = Integer.toHexString(decimalesCompraIssuer);
+                    cajaHexa.setText("0" + hexadecimalCompraIssuer + "0000");
 
-                    areaHercules.setText(desglorarCompra[0] + valorCompra + fechaCompra + horaCompra + desglorarCompra[4]);
+                    areaHercules.setText(desglorarCompraIssuer[0] + valorCompraIssuer + fechaCompraIssuer + horaCompraIssuer + desglorarCompraIssuer[4]);
 
                     break;
                 case 2:
 
-                    int decimalesRetiro = 500;
-                    String hexadecimalRetiro = Integer.toHexString(decimalesRetiro);
-                    cajaHexa.setText("0" + hexadecimalRetiro + "0000");
+                    JOptionPane.showMessageDialog(null, "Tipo de mensaje no disponible");
+                    /*
+                    int decimalesRetiroIssuer = 500;
+                    String hexadecimalRetiroIssuer = Integer.toHexString(decimalesRetiroIssuer);
+                    cajaHexa.setText("0" + hexadecimalRetiroIssuer + "0000");
 
-                    areaHercules.setText(desglorarRetiro[0] + valorRetiro + fechaRetiro + horaRetiro + desglorarRetiro[4]);
+                    areaHercules.setText(desglorarRetiroIssuer[0] + valorRetiroIssuer + fechaRetiroIssuer + horaRetiroIssuer + desglorarRetiroIssuer[4]);
+                     */
 
+                    break;
+                case 3:
+
+                    JOptionPane.showMessageDialog(null, "Tipo de mensaje no disponible");
+
+                    /*
+                    int decimalesCompraGlori = 500;
+                    String hexadecimalCompraGlori = Integer.toHexString(decimalesCompraGlori);
+                    cajaHexa.setText("0" + hexadecimalCompraGlori + "0000");
+
+                    areaHercules.setText(desglorarCompraGlori[0] + valorCompraGlori + fechaCompraGlori + horaCompraGlori + desglorarCompraGlori[4]);
+                     */
+                    break;
+                case 4:
+
+                    JOptionPane.showMessageDialog(null, "Tipo de mensaje no disponible");
+
+                    /*
+                    int decimalesRetiroGlori = 500;
+                    String hexadecimalRetiroGlori = Integer.toHexString(decimalesRetiroGlori);
+                    cajaHexa.setText("0" + hexadecimalRetiroGlori + "0000");
+
+                    areaHercules.setText(desglorarRetiroGlori[0] + valorRetiroGlori + fechaRetiroGlori + horaRetiroGlori + desglorarRetiroGlori[4]);
+                     */
                     break;
             }
 

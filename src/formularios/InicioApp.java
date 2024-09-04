@@ -1,6 +1,7 @@
 package formularios;
 
 import formularios.RCIN.VentanaRCIN;
+import formularios.RCIS.VentanaRCIS;
 import java.awt.Image;
 import java.awt.Toolkit;
 
@@ -172,7 +173,9 @@ public class InicioApp extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEmisorActionPerformed
 
     private void btnRCISActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRCISActionPerformed
-        // TODO add your handling code here:
+        VentanaRCIS ventanaRCIS = new VentanaRCIS();
+        this.dispose();
+        ventanaRCIS.setVisible(true);
     }//GEN-LAST:event_btnRCISActionPerformed
 
     public static void main(String args[]) {

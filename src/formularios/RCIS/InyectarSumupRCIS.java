@@ -1,5 +1,6 @@
-package formularios.RCIN;
+package formularios.RCIS;
 
+import formularios.RCIN.*;
 import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
@@ -9,7 +10,7 @@ import java.util.Calendar;
 import java.util.Formatter;
 import javax.swing.JOptionPane;
 
-public class InyectarSumupRCIN extends javax.swing.JInternalFrame {
+public class InyectarSumupRCIS extends javax.swing.JInternalFrame {
 
     String tramaCompraVirtual = "01005339413422337966   ;000000000008000;000000000008000;20240715;154431;000000000000000000000000475032601184005100123456     12558800098765432        123456789000000Merchant name         Merchant cityUS   8401520100001520041                   000000000000001569300000000000000000000                                                                                                                                                                                                                                                          000000000000                   ";
     String[] desglorarCompraVirtual = tramaCompraVirtual.split(";");
@@ -25,7 +26,7 @@ public class InyectarSumupRCIN extends javax.swing.JInternalFrame {
     String fechaCompraFisica = desglorarCompraFisica[3];
     String horaCompraFisica = desglorarCompraFisica[4];
 
-    public InyectarSumupRCIN() {
+    public InyectarSumupRCIS() {
         initComponents();
 
     }
@@ -66,7 +67,7 @@ public class InyectarSumupRCIN extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setResizable(true);
-        setTitle("Generar Tramas Sumup - RCIN");
+        setTitle("Generar Tramas Sumup - RCIS");
         setMaximumSize(new java.awt.Dimension(950, 475));
         setMinimumSize(new java.awt.Dimension(950, 475));
         setPreferredSize(new java.awt.Dimension(950, 475));
@@ -136,7 +137,7 @@ public class InyectarSumupRCIN extends javax.swing.JInternalFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setText("Segundos");
 
-        comboPuerto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "RCIN - CERT01", "RCIN - CERT02" }));
+        comboPuerto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "RCIS - CERT01", "RCIS - CERT02" }));
         comboPuerto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboPuertoActionPerformed(evt);
@@ -380,11 +381,11 @@ public class InyectarSumupRCIN extends javax.swing.JInternalFrame {
             switch (comboPuerto.getSelectedIndex()) {
                 case 0:
                     cajaIp.setText("10.195.16.7");
-                    cajaPuerto.setText("6100");
+                    cajaPuerto.setText("6080");
                     break;
                 case 1:
                     cajaIp.setText("10.195.16.22");
-                    cajaPuerto.setText("6100");
+                    cajaPuerto.setText("6080");
                     break;
             }
 

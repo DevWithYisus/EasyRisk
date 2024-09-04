@@ -50,7 +50,7 @@ public class ConvertirISORCIN extends javax.swing.JInternalFrame {
         btnCopiarHercules1 = new javax.swing.JButton();
 
         setClosable(true);
-        setTitle("Convertir Tramas ISO");
+        setTitle("Convertir Tramas ISO - RCIN");
         setMaximumSize(new java.awt.Dimension(950, 600));
         setMinimumSize(new java.awt.Dimension(950, 600));
         setName(""); // NOI18N

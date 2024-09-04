@@ -74,7 +74,7 @@ public class InyectarCPMRCIN extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setResizable(true);
-        setTitle("Generar Tramas CPM");
+        setTitle("Generar Tramas CPM - RCIN");
         setMaximumSize(new java.awt.Dimension(950, 475));
         setMinimumSize(new java.awt.Dimension(950, 475));
         setPreferredSize(new java.awt.Dimension(950, 475));

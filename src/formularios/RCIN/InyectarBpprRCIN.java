@@ -114,7 +114,7 @@ public class InyectarBpprRCIN extends javax.swing.JInternalFrame {
         btnCopiarHercules1 = new javax.swing.JButton();
 
         setClosable(true);
-        setTitle("Generar Tramas BPPR");
+        setTitle("Generar Tramas BPPR - RCIN");
         setMaximumSize(new java.awt.Dimension(950, 475));
         setMinimumSize(new java.awt.Dimension(950, 475));
         setName(""); // NOI18N

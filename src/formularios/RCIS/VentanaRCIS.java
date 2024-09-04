@@ -1,16 +1,18 @@
-package formularios.RCIN;
 
+package formularios.RCIS;
+
+import formularios.RCIN.*;
+import formularios.RCIS.*;
 import formularios.DesglosarCpm;
 import formularios.DesglosarSumup;
 import formularios.InicioApp;
-import formularios.RCIS.VentanaRCIS;
 import formularios.VentanaAdquirente;
 import java.awt.Image;
 import java.awt.Toolkit;
 
-public class VentanaRCIN extends javax.swing.JFrame {
+public class VentanaRCIS extends javax.swing.JFrame {
 
-    public VentanaRCIN() {
+    public VentanaRCIS() {
         initComponents();
     }
 
@@ -24,7 +26,7 @@ public class VentanaRCIN extends javax.swing.JFrame {
         menuRCIS = new javax.swing.JMenu();
         opInicio = new javax.swing.JMenuItem();
         opRCAQ = new javax.swing.JMenuItem();
-        opRCIS = new javax.swing.JMenuItem();
+        opRCIN = new javax.swing.JMenuItem();
         menuInyectar = new javax.swing.JMenu();
         opSumup = new javax.swing.JMenuItem();
         opCpm = new javax.swing.JMenuItem();
@@ -41,7 +43,7 @@ public class VentanaRCIN extends javax.swing.JFrame {
         opDesglosarSears = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("RCIN");
+        setTitle("RCIS");
         setIconImage(getIconImage());
         setLocationByPlatform(true);
         setMinimumSize(new java.awt.Dimension(1300, 700));
@@ -89,15 +91,15 @@ public class VentanaRCIN extends javax.swing.JFrame {
         });
         menuRCIS.add(opRCAQ);
 
-        opRCIS.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        opRCIS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/emisor.png"))); // NOI18N
-        opRCIS.setText("Cambiar a RCIS");
-        opRCIS.addActionListener(new java.awt.event.ActionListener() {
+        opRCIN.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        opRCIN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/emisor.png"))); // NOI18N
+        opRCIN.setText("Cambiar a RCIN");
+        opRCIN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                opRCISActionPerformed(evt);
+                opRCINActionPerformed(evt);
             }
         });
-        menuRCIS.add(opRCIS);
+        menuRCIS.add(opRCIN);
 
         menuCompleto.add(menuRCIS);
 
@@ -246,9 +248,9 @@ public class VentanaRCIN extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void opCpmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opCpmActionPerformed
-        InyectarCPMRCIN inyectarCPMRCIN = new InyectarCPMRCIN();
-        escritorio.add(inyectarCPMRCIN);
-        inyectarCPMRCIN.setVisible(true);
+        InyectarCPMRCIS inyectarCPMRCIS = new InyectarCPMRCIS();
+        escritorio.add(inyectarCPMRCIS);
+        inyectarCPMRCIS.setVisible(true);
     }//GEN-LAST:event_opCpmActionPerformed
 
     private void opDesglosarCpmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opDesglosarCpmActionPerformed
@@ -265,7 +267,7 @@ public class VentanaRCIN extends javax.swing.JFrame {
     }//GEN-LAST:event_opInicioActionPerformed
 
     private void opSumupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opSumupActionPerformed
-        InyectarSumupRCIN ventanaSumup = new InyectarSumupRCIN();
+        InyectarSumupRCIS ventanaSumup = new InyectarSumupRCIS();
         escritorio.add(ventanaSumup);
         ventanaSumup.setVisible(true);
     }//GEN-LAST:event_opSumupActionPerformed
@@ -283,45 +285,46 @@ public class VentanaRCIN extends javax.swing.JFrame {
     }//GEN-LAST:event_opRCAQActionPerformed
 
     private void opBpprActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opBpprActionPerformed
-        InyectarBpprRCIN ventanaBPPR = new InyectarBpprRCIN();
+        InyectarBpprRCIS ventanaBPPR = new InyectarBpprRCIS();
         escritorio.add(ventanaBPPR);
         ventanaBPPR.setVisible(true);
     }//GEN-LAST:event_opBpprActionPerformed
 
     private void opISOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opISOActionPerformed
-        ConvertirISORCIN convertirISORCIN = new ConvertirISORCIN();
-        escritorio.add(convertirISORCIN);
-        convertirISORCIN.setVisible(true);
+        ConvertirISORCIS convertirISORCIS = new ConvertirISORCIS();
+        escritorio.add(convertirISORCIS);
+        convertirISORCIS.setVisible(true);
     }//GEN-LAST:event_opISOActionPerformed
 
     private void opASCIIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opASCIIActionPerformed
-        ConvertirASCIIRCIN convertirASCIIRCIN = new ConvertirASCIIRCIN();
-        escritorio.add(convertirASCIIRCIN);
-        convertirASCIIRCIN.setVisible(true);
+        ConvertirASCIIRCIS convertirASCIIRCIS = new ConvertirASCIIRCIS();
+        escritorio.add(convertirASCIIRCIS);
+        convertirASCIIRCIS.setVisible(true);
     }//GEN-LAST:event_opASCIIActionPerformed
 
-    private void opRCISActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opRCISActionPerformed
-        formularios.RCIS.VentanaRCIS ventanaRCIS = new VentanaRCIS();
+    private void opRCINActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opRCINActionPerformed
+        formularios.RCIN.VentanaRCIN ventanaRCIN = new VentanaRCIN();
         this.dispose();
-        ventanaRCIS.setVisible(true);
-    }//GEN-LAST:event_opRCISActionPerformed
+        ventanaRCIN.setVisible(true);
+        
+    }//GEN-LAST:event_opRCINActionPerformed
 
     private void opBancoopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opBancoopActionPerformed
-        InyectarBancoopRCIN inyectarBancoopRCIN = new InyectarBancoopRCIN();
-        escritorio.add(inyectarBancoopRCIN);
-        inyectarBancoopRCIN.setVisible(true);
+        InyectarBancoopRCIS inyectarBancoopRCIS = new InyectarBancoopRCIS();
+        escritorio.add(inyectarBancoopRCIS);
+        inyectarBancoopRCIS.setVisible(true);
     }//GEN-LAST:event_opBancoopActionPerformed
 
     private void opSearsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opSearsActionPerformed
-        InyectarSearsRCIN inyectarSearsRCIN = new InyectarSearsRCIN();
-        escritorio.add(inyectarSearsRCIN);
-        inyectarSearsRCIN.setVisible(true);
+        InyectarSearsRCIS inyectarSearsRCIS = new InyectarSearsRCIS();
+        escritorio.add(inyectarSearsRCIS);
+        inyectarSearsRCIS.setVisible(true);
     }//GEN-LAST:event_opSearsActionPerformed
 
     private void opPaySmartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opPaySmartActionPerformed
-        InyectarPaysmartRCIN inyectarPaysmartRCIN = new InyectarPaysmartRCIN();
-        escritorio.add(inyectarPaysmartRCIN);
-        inyectarPaysmartRCIN.setVisible(true);
+        InyectarPaysmartRCIS inyectarPaysmartRCIS = new InyectarPaysmartRCIS();
+        escritorio.add(inyectarPaysmartRCIS);
+        inyectarPaysmartRCIS.setVisible(true);
     }//GEN-LAST:event_opPaySmartActionPerformed
 
     /**
@@ -341,14 +344,18 @@ public class VentanaRCIN extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VentanaRCIN.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaRCIS.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VentanaRCIN.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaRCIS.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VentanaRCIN.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaRCIS.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VentanaRCIN.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaRCIS.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -357,7 +364,7 @@ public class VentanaRCIN extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VentanaRCIN().setVisible(true);
+                new VentanaRCIS().setVisible(true);
             }
         });
     }
@@ -387,7 +394,7 @@ public class VentanaRCIN extends javax.swing.JFrame {
     private javax.swing.JMenuItem opInicio;
     private javax.swing.JMenuItem opPaySmart;
     private javax.swing.JMenuItem opRCAQ;
-    private javax.swing.JMenuItem opRCIS;
+    private javax.swing.JMenuItem opRCIN;
     private javax.swing.JMenuItem opSears;
     private javax.swing.JMenuItem opSumup;
     // End of variables declaration//GEN-END:variables
