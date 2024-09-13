@@ -322,18 +322,12 @@ public class ConvertirISORCIS extends javax.swing.JInternalFrame {
             if (tramaCompleta.length() <= 25) {
                 JOptionPane.showMessageDialog(null, "Ingrese una trama para convertir");
             }
-
-            String inicio = tramaCompleta.substring(0, 2);
-            String bin = tramaCompleta.substring(2, 10);
-            String tramaDesdeISO = tramaCompleta.substring(33, tramaCompleta.length());
-            String primeraParte = tramaDesdeISO.substring(0, 50);
-            String parteTarjetaFinal = tramaDesdeISO.substring(58, 69);
-            String partefinal = tramaCompleta.substring(127, tramaCompleta.length());
-
-            System.out.println(inicio);
-            System.out.println(bin);
-            System.out.println(primeraParte);
-            System.out.println(parteTarjetaFinal);
+            String tramaDesdeISO = tramaCompleta.substring(23, tramaCompleta.length());
+            String parteISO = tramaDesdeISO.substring(16, 19);
+            String antesTarjeta = null;
+            String parteTarjetaFinal = null;
+            String parteBin = null;
+            String parteFinal = null;
 
             Formatter obj = new Formatter();
             Calendar calendario = cajaFecha.getCalendar();
@@ -369,14 +363,11 @@ public class ConvertirISORCIS extends javax.swing.JInternalFrame {
             String montoTotal = String.valueOf(obj.format("%015d", numero));
             String parteValor = montoTotal;
 
-            
-
-            areaHercules.setText(primeraParte + bin + parteTarjetaFinal + parteValor + fecha + hora + partefinal);
-            
+            //areaHercules.setText(primeraParte + parteTarjetaFinal + parteValor + fecha + hora + partefinal);
             int decimalesP2P = areaHercules.getText().length();
             String hexadecimalP2P = Integer.toHexString(decimalesP2P);
             cajaHexa.setText("0" + hexadecimalP2P + "0000");
-            
+
             switch (comboPuerto.getSelectedIndex()) {
                 case 0:
                     cajaIp.setText("10.195.16.7");
@@ -386,6 +377,20 @@ public class ConvertirISORCIS extends javax.swing.JInternalFrame {
                     cajaIp.setText("10.195.16.22");
                     cajaPuerto.setText("6050");
                     break;
+            }
+
+            if (parteISO.equals("723")) {
+                antesTarjeta = tramaDesdeISO.substring(0, 34);
+                parteTarjetaFinal = tramaDesdeISO.substring(42, 53);
+                parteBin = tramaDesdeISO.substring(tramaDesdeISO.length()-8,tramaDesdeISO.length());
+                parteFinal = tramaDesdeISO.substring(78, tramaDesdeISO.length());  
+                areaHercules.setText(antesTarjeta + parteBin +  parteTarjetaFinal + parteValor + fecha + hora + parteFinal);
+            }if (parteISO.equals("F23")) {
+                antesTarjeta = tramaDesdeISO.substring(0, 50);
+                parteTarjetaFinal = tramaDesdeISO.substring(58, 69);
+                parteBin = tramaDesdeISO.substring(tramaDesdeISO.length()-8,tramaDesdeISO.length());
+                parteFinal = tramaDesdeISO.substring(94, tramaDesdeISO.length());  
+                areaHercules.setText(antesTarjeta + parteBin +  parteTarjetaFinal + parteValor + fecha + hora + parteFinal);
             }
 
         } catch (Exception e) {

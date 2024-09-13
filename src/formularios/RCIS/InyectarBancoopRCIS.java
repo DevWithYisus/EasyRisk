@@ -11,14 +11,14 @@ import javax.swing.JOptionPane;
 
 public class InyectarBancoopRCIS extends javax.swing.JInternalFrame {
 
-    //ATHM P2P
-    String tramaCompra = "ISO0260000530220F238C4C10EE180160000000006000008165045381006847762002;000000000000400;0627;185600;0003101455590627062859120110002082150201100000004553311827200HATHPBLOS07     4549105002456  TEST BPPR OSVALDO     SAN JUAN     PR PR0274549105002456       0000000840016BPPRCER3+000000001000936     644& 0000600644! RE00008 00000   ! SM00516 05120000000000                                                                                                                                                                                                                                                          10000000000100001                                                                                                                                                                                                                                           ! 0400020  84000000997        ! C400012 000000000020! C000026         00936             0921710237400012P HOSTB24 10";
+    //COMPRA BANCOOP
+    String tramaCompra = "ISO02600007002007238C4C108E18012164199105503235556200;000000000001300;0913;101010;014771105628052005215999022000006454904414114003341Refund          SIMMIGRATE0    VISA Acquirer Store   VISASIM         US027SIMMIGRATE01       00000000840016VISAVISA+0000000228& 0000700228! RE00008 50099   ! BM00036     200000                          ! 0400020                   Y ! FH00020              840    ! BY00060 003341414114003341VNT                0                      ! C400012 00000000002041991055";
     String[] desglorarCompra = tramaCompra.split(";");
     String valorCompra = desglorarCompra[1];
     String fechaCompra = desglorarCompra[2];
     String horaCompra = desglorarCompra[3];
 
-    //ATHM P2B
+    //RETIRO BANCOOP
     String tramaRetiro = "ISO0160000530220F23CE40006E080000000004000004008165045381007077713012;000000000001000;0711;204507;010237164507071112010711601163090135862400HATHPBLOS07     HATHPBLOS07    KMART 7752      YAUCOSAN JUAN     PR    840                                          043001018212587490707323575002003OAA003004    001                                                                                                                                                                                                       ";
     String[] desglorarRetiro = tramaRetiro.split(";");
     String valorRetiro = desglorarRetiro[1];
@@ -386,7 +386,7 @@ public class InyectarBancoopRCIS extends javax.swing.JInternalFrame {
                     break;
                 case 1:
 
-                    int decimalesCompra = 967;
+                    int decimalesCompra = 492;
                     String hexadecimalCompra = Integer.toHexString(decimalesCompra);
                     cajaHexa.setText("0" + hexadecimalCompra + "0000");
 
