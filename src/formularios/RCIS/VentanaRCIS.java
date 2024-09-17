@@ -3,10 +3,8 @@ package formularios.RCIS;
 
 import formularios.RCIN.*;
 import formularios.RCIS.*;
-import formularios.DesglosarCpm;
-import formularios.DesglosarSumup;
 import formularios.InicioApp;
-import formularios.VentanaAdquirente;
+import formularios.RCAQ.VentanaRCAQ;
 import java.awt.Image;
 import java.awt.Toolkit;
 
@@ -38,9 +36,7 @@ public class VentanaRCIS extends javax.swing.JFrame {
         opISO = new javax.swing.JMenuItem();
         opASCII = new javax.swing.JMenuItem();
         menuDesglosar = new javax.swing.JMenu();
-        opDesglosarSumup = new javax.swing.JMenuItem();
-        opDesglosarCpm = new javax.swing.JMenuItem();
-        opDesglosarSears = new javax.swing.JMenuItem();
+        opDesglosarPaye = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("RCIS");
@@ -203,30 +199,15 @@ public class VentanaRCIS extends javax.swing.JFrame {
         menuDesglosar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         menuDesglosar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
 
-        opDesglosarSumup.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        opDesglosarSumup.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/sumup.png"))); // NOI18N
-        opDesglosarSumup.setText("Sumup");
-        opDesglosarSumup.addActionListener(new java.awt.event.ActionListener() {
+        opDesglosarPaye.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        opDesglosarPaye.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/cpm.png"))); // NOI18N
+        opDesglosarPaye.setText("PAYE");
+        opDesglosarPaye.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                opDesglosarSumupActionPerformed(evt);
+                opDesglosarPayeActionPerformed(evt);
             }
         });
-        menuDesglosar.add(opDesglosarSumup);
-
-        opDesglosarCpm.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        opDesglosarCpm.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/cpm.png"))); // NOI18N
-        opDesglosarCpm.setText("CPM");
-        opDesglosarCpm.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                opDesglosarCpmActionPerformed(evt);
-            }
-        });
-        menuDesglosar.add(opDesglosarCpm);
-
-        opDesglosarSears.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        opDesglosarSears.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/sumup.png"))); // NOI18N
-        opDesglosarSears.setText("Sears");
-        menuDesglosar.add(opDesglosarSears);
+        menuDesglosar.add(opDesglosarPaye);
 
         menuCompleto.add(menuDesglosar);
 
@@ -253,11 +234,11 @@ public class VentanaRCIS extends javax.swing.JFrame {
         inyectarCPMRCIS.setVisible(true);
     }//GEN-LAST:event_opCpmActionPerformed
 
-    private void opDesglosarCpmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opDesglosarCpmActionPerformed
-        DesglosarCpm desCpm =  new DesglosarCpm();
-        escritorio.add(desCpm);
-        desCpm.setVisible(true);
-    }//GEN-LAST:event_opDesglosarCpmActionPerformed
+    private void opDesglosarPayeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opDesglosarPayeActionPerformed
+        DesglosarPAYERCIS desglosarPAYERCIS =  new DesglosarPAYERCIS();
+        escritorio.add(desglosarPAYERCIS);
+        desglosarPAYERCIS.setVisible(true);
+    }//GEN-LAST:event_opDesglosarPayeActionPerformed
 
     private void opInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opInicioActionPerformed
         InicioApp ventanaInicio = new InicioApp();
@@ -272,14 +253,8 @@ public class VentanaRCIS extends javax.swing.JFrame {
         ventanaSumup.setVisible(true);
     }//GEN-LAST:event_opSumupActionPerformed
 
-    private void opDesglosarSumupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opDesglosarSumupActionPerformed
-        DesglosarSumup desSumup =  new DesglosarSumup();
-        escritorio.add(desSumup);
-        desSumup.setVisible(true);
-    }//GEN-LAST:event_opDesglosarSumupActionPerformed
-
     private void opRCAQActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opRCAQActionPerformed
-        VentanaAdquirente ventanaAdquirente = new VentanaAdquirente();
+        VentanaRCAQ ventanaAdquirente = new VentanaRCAQ();
         ventanaAdquirente.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_opRCAQActionPerformed
@@ -387,9 +362,7 @@ public class VentanaRCIS extends javax.swing.JFrame {
     private javax.swing.JMenuItem opBancoop;
     private javax.swing.JMenuItem opBppr;
     private javax.swing.JMenuItem opCpm;
-    private javax.swing.JMenuItem opDesglosarCpm;
-    private javax.swing.JMenuItem opDesglosarSears;
-    private javax.swing.JMenuItem opDesglosarSumup;
+    private javax.swing.JMenuItem opDesglosarPaye;
     private javax.swing.JMenuItem opISO;
     private javax.swing.JMenuItem opInicio;
     private javax.swing.JMenuItem opPaySmart;

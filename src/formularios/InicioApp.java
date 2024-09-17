@@ -1,5 +1,6 @@
 package formularios;
 
+import formularios.RCAQ.VentanaRCAQ;
 import formularios.RCIN.VentanaRCIN;
 import formularios.RCIS.VentanaRCIS;
 import java.awt.Image;
@@ -161,7 +162,7 @@ public class InicioApp extends javax.swing.JFrame {
 
     private void btnAdquirenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdquirenteActionPerformed
         // TODO add your handling code here:
-        VentanaAdquirente ventanaAdquirente = new VentanaAdquirente();
+        VentanaRCAQ ventanaAdquirente = new VentanaRCAQ();
         ventanaAdquirente.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnAdquirenteActionPerformed
