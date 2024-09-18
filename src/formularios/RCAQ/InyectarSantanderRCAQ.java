@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
 
 public class InyectarSantanderRCAQ extends javax.swing.JInternalFrame {
 
-    String tramaCompra = "01005339413422337966   ;000000000008000;000000000008000;20240715;154431;000000000000000000000000475032601184005100123456     12558800098765432        123456789000000Merchant name         Merchant cityUS   8401520100001520041                   000000000000001569300000000000000000000                                                                                                                                                                                                                                                          000000000000                   ";
+    String tramaCompra = "02004761733598740036   ;000000000100400;000000000000000;20240918;101010;00000000000163202212076315290100406397     02147300 10000090        000000000001015Sucursal Automation   Iquique      CL1  152000000000152000202409172046420000000000000000000000Contado CLP                                                 11                                       00000000000000000000000000000002476173901000000000230036             ";
     String[] desglorarCompra = tramaCompra.split(";");
     String valorCompra = desglorarCompra[1];
     String valor2Compra = desglorarCompra[2];
@@ -384,7 +384,7 @@ public class InyectarSantanderRCAQ extends javax.swing.JInternalFrame {
                     JOptionPane.showMessageDialog(null, "Seleccione un tipo de transacción");
                     break;
                 case 1:
-                    int decimales = 558;
+                    int decimales = 414;
                     String hexadecimal = Integer.toHexString(decimales);
                     cajaHexa.setText("0" + hexadecimal);
 

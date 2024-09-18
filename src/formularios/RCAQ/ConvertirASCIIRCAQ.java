@@ -51,7 +51,7 @@ public class ConvertirASCIIRCAQ extends javax.swing.JInternalFrame {
         btnCopiarHercules1 = new javax.swing.JButton();
 
         setClosable(true);
-        setTitle("Convertir Tramas ASCII - RCIN");
+        setTitle("Convertir Tramas ASCII - RCAQ");
         setMaximumSize(new java.awt.Dimension(950, 600));
         setMinimumSize(new java.awt.Dimension(950, 600));
         setName(""); // NOI18N
@@ -108,7 +108,7 @@ public class ConvertirASCIIRCAQ extends javax.swing.JInternalFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setText("Segundos");
 
-        comboPuerto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "RCIN - CERT01", "RCIN - CERT02" }));
+        comboPuerto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "RCAQ - CERT01", "RCAQ - CERT02" }));
 
         lblValor2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblValor2.setText("Instancia/Ambiente:");
@@ -324,9 +324,10 @@ public class ConvertirASCIIRCAQ extends javax.swing.JInternalFrame {
             }
 
             String mti = tramaCompleta.substring(0, 4);
-            String bin = tramaCompleta.substring(28, 40);
-            String tarjeta = tramaCompleta.substring(48, 55);
-            String parteFinal = tramaCompleta.substring(99, tramaCompleta.length());
+            String encriptado = tramaCompleta.substring(10,18);
+            String bin = tramaCompleta.substring(377, 385);
+            String tarjeta = tramaCompleta.substring(16, 23);
+            String parteFinal = tramaCompleta.substring(67, tramaCompleta.length());
 
             Formatter obj = new Formatter();
             Calendar calendario = cajaFecha.getCalendar();
@@ -369,8 +370,15 @@ public class ConvertirASCIIRCAQ extends javax.swing.JInternalFrame {
                     cajaPuerto.setText("6080");
                     break;
             }
+            
+            if (encriptado.equals("********")) {
+                tarjeta = tramaCompleta.substring(18, 23);
+                areaHercules.setText(mti + bin + "123456" +  tarjeta + valor + valor2 + fecha + hora + parteFinal);
+            }else {
+                areaHercules.setText(mti + bin + "1234" +  tarjeta + valor + valor2 + fecha + hora + parteFinal);
+            }
 
-            areaHercules.setText(mti + bin + tarjeta + valor + valor2 + fecha + hora + parteFinal);
+            
 
             String longitud = areaHercules.getText();
             System.out.println(longitud.length());

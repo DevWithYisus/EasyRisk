@@ -1,7 +1,5 @@
 package formularios.RCAQ;
 
-import formularios.DesglosarGetnet;
-import formularios.DesglosarSantander;
 import formularios.InicioApp;
 import formularios.RCIN.ConvertirASCIIRCIN;
 import formularios.RCIN.VentanaRCIN;
@@ -188,9 +186,9 @@ public class VentanaRCAQ extends javax.swing.JFrame {
     }//GEN-LAST:event_opSantanderActionPerformed
 
     private void opDesglosarSantanderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opDesglosarSantanderActionPerformed
-        DesglosarSantander desSantander = new DesglosarSantander();
-        escritorio.add(desSantander);
-        desSantander.setVisible(true);
+        DesglosarSantanderRCAQ desglosarSantanderRCAQ = new DesglosarSantanderRCAQ();
+        escritorio.add(desglosarSantanderRCAQ);
+        desglosarSantanderRCAQ.setVisible(true);
     }//GEN-LAST:event_opDesglosarSantanderActionPerformed
 
     private void opInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opInicioActionPerformed
@@ -207,9 +205,9 @@ public class VentanaRCAQ extends javax.swing.JFrame {
     }//GEN-LAST:event_opGetnetActionPerformed
 
     private void opDesglosarGetnetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opDesglosarGetnetActionPerformed
-        DesglosarGetnet desGetnet = new DesglosarGetnet();
-        escritorio.add(desGetnet);
-        desGetnet.setVisible(true);
+        DesglosarGetnetRCAQ desglosarGetnetRCAQ = new DesglosarGetnetRCAQ();
+        escritorio.add(desglosarGetnetRCAQ);
+        desglosarGetnetRCAQ.setVisible(true);
     }//GEN-LAST:event_opDesglosarGetnetActionPerformed
 
     private void opEmisorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opEmisorActionPerformed
