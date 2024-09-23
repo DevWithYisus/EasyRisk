@@ -11,14 +11,14 @@ import javax.swing.JOptionPane;
 public class InyectarBpprRCIN extends javax.swing.JInternalFrame {
 
     //ATHM P2P
-    String tramaP2P = "ISO0160000500200F23CC44108E080900000000000000008160215020107779934402;000000000000400;0913;101010;5547031812230904301209056011011121100021502011000000052222HATHPBLOS07     EVERTEC LLC    EVERTEC LLC              SAN JUAN     PR8400292& 0000700292! RE00008 50099   ! BM00036 R00240202040202078722137407877599999! 0300006 000N00! BY00060 005585000000052222                   0                      ! HB00100   00                                                                                                ! 2400010 P  000000 012ATHMCER30000001102150201";
+    String tramaP2P = "ISO0160000530220F23CC4410EF080900000000002000008160215020146065689402;000000000012345;0913;010101;00527214413107150000071560110110006999999134001      70561000MOBILE01        ATHM           CONOCO-------------------CHATTANOOGA--US2500000000000000000000000008400112& 0000500112! RE00008 50099   ! BM00036 R002402020402020  StoreMGV7877599999! 0300006 000N00! 2400010 P 00331001012ATHMCER3+000090107081030012";
     String[] desglorarP2P = tramaP2P.split(";");
     String valorP2P = desglorarP2P[1];
     String fechaP2P = desglorarP2P[2];
     String horaP2P = desglorarP2P[3];
 
     //ATHM P2B
-    String tramaP2B = "ISO0160000500200F23CC44108E08010000000000000000C164549510121963217401;000000000000850;0913;101010;0184261129070814    08146011011000821502011000000051089HATHPBLOS07     EVERTEC LLC    EVERTEC LLC           SAN JUAN     PR PR840012ATHMCER3+0000011092& 0000400092! RE00008 50099   ! BM00036 R202401020401020P2Business7877599999! 0300006 000N0045495101";
+    String tramaP2B = "ISO0160000530220F23CE40006E080000000004000004008164549516047289272400;000000000000400;0909;112400;061956181908082602  0826601184001162936200MOBILE01        MOBILE01       ATH MOVIL 9394999997/---CHATTANOOGA--   840                                          043001018212591470748035720002003TAA003004R2020011                                 ";
     String[] desglorarP2B = tramaP2B.split(";");
     String valorP2B = desglorarP2B[1];
     String fechaP2B = desglorarP2B[2];
@@ -460,7 +460,7 @@ public class InyectarBpprRCIN extends javax.swing.JInternalFrame {
                     break;
                 case 1:
 
-                    int decimalesP2P = 549;
+                    int decimalesP2P = 403;
                     String hexadecimalP2P = Integer.toHexString(decimalesP2P);
                     cajaHexa.setText("0" + hexadecimalP2P + "0000");
 
@@ -469,7 +469,7 @@ public class InyectarBpprRCIN extends javax.swing.JInternalFrame {
                     break;
                 case 2:
 
-                    int decimalesP2B = 346;
+                    int decimalesP2B = 335;
                     String hexadecimalP2B = Integer.toHexString(decimalesP2B);
                     cajaHexa.setText("0" + hexadecimalP2B + "0000");
 
